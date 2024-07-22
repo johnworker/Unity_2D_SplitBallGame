@@ -1,21 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    public BallController ballController;
+    public TextMeshProUGUI scoreText;
+    private int score;
 
     void Start()
     {
-        ballController = FindObjectOfType<BallController>();
+        score = 0;
     }
 
-    void Update()
+    public void AddScore(int value)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ballController.SpawnBall();
-        }
+        score += value;
+        scoreText.text = "Score: " + score.ToString();
     }
+
 }
+
