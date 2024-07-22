@@ -4,6 +4,13 @@ public class Ball : MonoBehaviour
 {
     public GameObject smallerBallPrefab;
     public int splitCount = 2;
+    public float speed = 2f;
+
+    void Start()
+    {
+        // 設置初始運動方向
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f), -1f) * speed;
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
